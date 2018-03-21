@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions 
+	name="PowerService"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:req="http://nl.webshop.giro/giroservice/request"
+	xmlns:rsp="http://nl.webshop.giro/giroservice/response"
+	xmlns:flt="http://nl.webshop.giro/giroservice/fault"
+	xmlns="http://nl.webshop.giro/giroservice/"
+	targetNamespace="http://nl.webshop.giro/giroservice/">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://nl.webshop.giro/giroservice/request"
+				schemaLocation="request.xsd"/>
+			<xsd:import namespace="http://nl.webshop.giro/giroservice/response"
+				schemaLocation="response.xsd"/>
+			<xsd:import namespace="http://nl.webshop.giro/giroservice/fault"
+				schemaLocation="fault.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="request">
+		<wsdl:part name="request" element="req:giroRequest"/>
+	</wsdl:message>
+	<wsdl:message name="response">
+		<wsdl:part name="response" element="rsp:giroResponse"/>
+	</wsdl:message>
+	<wsdl:message name="fault">
+		<wsdl:part name="fault" element="flt:giroFault"/>
+	</wsdl:message>
+	<wsdl:portType name="giroServiceInterface">
+		<wsdl:operation name="generateNumber">
+			<wsdl:input message="request"/>
+			<wsdl:output message="response"/>
+			<wsdl:fault name="fault" message="fault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="giroServiceBinding" type="giroServiceInterface">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="generateNumber">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="giroServiceService">
+		<wsdl:port name="WS-Port" binding="giroServiceBinding">
+			<soap:address location="https://localhost:4711/webshop/giro"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

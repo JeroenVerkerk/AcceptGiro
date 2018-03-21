@@ -1,0 +1,12 @@
+nl\webshop\giro\persistence\BaseDAO.class
+nl\webshop\soap\simulategiro\wsinterface\GiroRequest.class
+nl\webshop\soap\simulategiro\App.class
+nl\webshop\giro\persistence\GiroDAO.class
+nl\webshop\soap\simulategiro\wsinterface\package-info.class
+nl\webshop\soap\simulategiro\wsinterface\GiroServiceService.class
+nl\hu\webshop\giro\pojo\Giro.class
+nl\webshop\soap\simulategiro\wsinterface\Fault.class
+nl\webshop\soap\simulategiro\wsinterface\ObjectFactory.class
+nl\webshop\soap\simulategiro\wsinterface\GiroFault.class
+nl\webshop\soap\simulategiro\wsinterface\GiroResponse.class
+nl\webshop\soap\simulategiro\wsinterface\GiroServiceInterface.class

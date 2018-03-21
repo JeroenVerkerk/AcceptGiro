@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://nl.webshop.giro/giroservice/request"
+	xmlns:pow="http://nl.webshop.giro/giroservice/giroTypes"
+	elementFormDefault="qualified" targetNamespace="http://nl.webshop.giro/giroservice/request">
+
+	<!-- root element -->
+	<xs:element name="giroRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="naam" type="naamType" />
+				<xs:element name="adres" type="adresType" />
+				<xs:element name="bedrag" type="xs:double" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:simpleType name="naamType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-z]{1,100}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="adresType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-z][0-9]{1,100}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
